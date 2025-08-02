@@ -1,0 +1,14 @@
+.carousel-inner {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item {
+  margin: 10px;
+  width: 228px; /* Set the width of each carousel item */
+}
+
+.carousel-caption {
+  text-align: center;
+  margin-top: 10px;
+}
