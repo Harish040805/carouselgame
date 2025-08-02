@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#95d6ff, #000000);
+    position: relative;
+    border: 2vw solid #2f2807;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+    linear-gradient(45deg, transparent 47%, #2b2b2b 50%, transparent 53%),
+    linear-gradient(-45deg, transparent 47%, #2b2b2b 50%, transparent 53%);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: -1;
+}
+.circle1 {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(#0799d8, #0763ba, #8febf7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    border: 7px solid blue;
+    position: absolute;
+}
+.circle2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(#4682B4, #4078A4, #8febf7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 5px solid violet;
+    position: absolute;
+}
+.circle3 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(#6495ED, #5885D5, #8febf7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border: 3px solid white;
+    position: absolute;
+}
+.circle4 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(#51bde1, #35a1d3, #8febf7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid yellow;
+    position: absolute;
+}
+.circle1 {
+    width: 400px;
+    height: 400px;
+    border-top: 5px solid #FFFF00;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+.circle2 {
+    width: 300px;
+    height: 300px;
+    border-left: 5px solid #7eff7e;
+    box-shadow: 0 0 10px rgba(59, 255, 59, 0.5);
+}
+.circle3 {
+    width: 200px;
+    height: 200px;
+    border-top: 5px solid #7eff7e;
+    box-shadow: 0 0 10px rgba(59, 255, 59, 0.5);
+}
+.circle4 {
+    width: 100px;
+    height: 100px;
+    border-left: 5px solid #FFFF00;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.spinning {
+    animation: spin 1s linear forwards;
+}
+.circle1.spinning {
+    animation-duration: 0.5s;
+    animation-iteration-count: 5;
+}
+.circle2.spinning {
+    animation-duration: 0.25s;
+    animation-iteration-count: 10;
+}
+.circle3.spinning {
+    animation-duration: 0.5s;
+    animation-iteration-count: 5;
+}
+#spin-btn {
+            position: absolute;
+            bottom: 20px;
+            background: linear-gradient(to bottom, #34C759, #00ff0d);
+            border: 2px solid #34C759;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(52, 199, 89, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #spin-btn:hover {
+            background: linear-gradient(to bottom, #65df69, #00ff0d);
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 0 30px rgba(52, 199, 89, 1);
+        }
+.lever-container {
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+}
+#lever-switch {
+  display: none;
+}
+.lever {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.lever::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  background: linear-gradient(to right, #ff3737, #ff7f7f);
+  border-radius: 10px;
+  transition: top 0.3s ease-in-out;
+}
+#lever-switch:checked + .lever::before {
+  top: calc(100% - 20px);
+}
+#lever-switch:not(:checked) + .lever .lever-handle {
+  top: 0;
+}
+.live-indicator {
+  position: fixed;
+  top: 60px;
+  left: 80px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff3737;
+  box-shadow: 0 0 10px rgba(255, 55, 55, 0.7);
+  display: none;
+}
+.live-indicator.show {
+  display: block;
+}
+#wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 10px solid #ccc;
+  transition: transform 5s cubic-bezier(0.19, 1, 0.22, 1);
+}
